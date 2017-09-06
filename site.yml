@@ -1,0 +1,19 @@
+---
+- hosts: tag_Ansible_Slave
+  remote_user: ec2-user
+  #become: yes
+  #become_method: sudo
+  connection: local
+  gather_facts: false
+  environment:
+    NAME: '{{name}}'
+    KOPS_STATE_STORE: '{{kops_state_store}}'
+    AWS_ACCESS_KEY_ID: '{{aws_access_key_id}}'
+    AWS_SECRET_ACCESS_KEY: '{{aws_secret_access_key}}'
+    AWS_REGION: '{{aws_region}}'
+    PATH: "{{ ansible_env.PATH }}:/usr/local/bin"
+
+  tasks:
+  - include_vars: vars.yml
+  - include: tasks/kopsStart.yml
+  # - include: tasks/test.yml
