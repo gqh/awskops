@@ -1,0 +1,28 @@
+---
+  - name: checking env
+    command: env 
+    
+  - name: configure AWS CLI region
+    command: aws configure set default.region '{{aws_region}}'
+
+  - name: configure AWS CLI access key
+    command: aws configure set aws_access_key_id '{{aws_access_key_id}}'
+
+  - name: configure AWS CLI secret key
+    command: aws configure set aws_secret_access_key '{{aws_secret_access_key}}'
+
+  #- name: test aws configure
+  #  shell: aws ec2 describe-instances
+
+  - name: Execute the kops command
+    command: /usr/local/bin/kops 
+    args:
+      #chdir: /usr/local/bin/
+      executable: /bin/bash
+    #command: /usr/local/bin/kops create cluster --zones "us-east-1a,us-east-1c" --node-count=2 --node-size=t2.micro --master-size=t2.micro '{{name}}'
+    #args:
+    #  chdir: /usr/local/bin/
+    #  executable: /bin/bash
+
+      
+

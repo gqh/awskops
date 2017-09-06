@@ -1,0 +1,4 @@
+---
+  - name: test task 1
+    debug:
+      msg: "testing ansible msg task 1"
