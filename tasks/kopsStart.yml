@@ -15,14 +15,10 @@
   #  shell: aws ec2 describe-instances
 
   - name: Execute the kops command
-    command: /usr/local/bin/kops 
+    command: /usr/local/bin/kops create cluster --zones "us-east-1a,us-east-1c" --node-count=2 --node-size=t2.micro --master-size=t2.micro '{{name}}'
     args:
-      #chdir: /usr/local/bin/
+      chdir: /usr/local/bin/
       executable: /bin/bash
-    #command: /usr/local/bin/kops create cluster --zones "us-east-1a,us-east-1c" --node-count=2 --node-size=t2.micro --master-size=t2.micro '{{name}}'
-    #args:
-    #  chdir: /usr/local/bin/
-    #  executable: /bin/bash
 
       
 
