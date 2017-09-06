@@ -1,6 +1,4 @@
 ---
 name: "democluster.k8s.local"
 kops_state_store: "s3://kops-demo2017"
-aws_access_key_id: "*****************"
-aws_secret_access_key: "***************"
 aws_region: "us-east-1"
